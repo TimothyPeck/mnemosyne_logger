@@ -37,7 +37,7 @@ public class ActiveMqConfig {
     }
 
 
-    private MessageConverter messageConverter() {
+    public MessageConverter messageConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
         converter.setTargetType(MessageType.TEXT);
         converter.setObjectMapper(objectMapper());
@@ -45,7 +45,7 @@ public class ActiveMqConfig {
     }
 
     @Bean
-    private ObjectMapper objectMapper() {
+    public ObjectMapper objectMapper() {
         ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new SimpleModule());
 		mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
